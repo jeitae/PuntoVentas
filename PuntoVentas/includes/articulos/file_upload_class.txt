@@ -1,0 +1,22 @@
+Class Name:upload
+Description:class to upload the file to specific location
+Constructor: 
+upload($fileName, $tempFileLoc, $fileSize, $fileType, $fileDir)
+This constructor sets the values of these variables and calls the fileUpTempLoc() function to check the whether file is uploaded to the temporary location.
+
+Methods:
+fileUp()
+to check whether file is uploaded or not to the temporary location
+
+dirExists()
+to check whether destination directory exists
+
+fileAlreadyExists()
+to check whether file is already there else move the file to the destination
+
+Pre-requisite for using the class:
+Virtual directory should be set
+Url of the class:
+
+for usage of the class, please refer to source code of example.php file.
+

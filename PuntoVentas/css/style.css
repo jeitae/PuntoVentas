@@ -1,0 +1,521 @@
+@charset "uft-8";
+
+
+/*****************************************************General*************************************************************************************/
+body {
+    background: #2E9FFF;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+
+/*****************************************************Menu Superior***********************************************************************/
+#menu {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-right: 5%;
+    width: 50%;
+    float: right;
+}
+
+#panelSuperior {
+    background: #b3dced; /* Old browsers */
+    background: -moz-linear-gradient(top, #b3dced 0%, #29b8e5 50%, #bce0ee 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b3dced), color-stop(50%,#29b8e5), color-stop(100%,#bce0ee)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #b3dced 0%,#29b8e5 50%,#bce0ee 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #b3dced 0%,#29b8e5 50%,#bce0ee 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #b3dced 0%,#29b8e5 50%,#bce0ee 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #b3dced 0%,#29b8e5 50%,#bce0ee 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee',GradientType=0 ); /* IE6-9 */
+    border-radius: 5px 5px 5px 5px;
+    padding: 1%;
+}
+
+#lUser {
+    float: right;
+}
+
+/**************************************************Lugar Donde se agrega el Contenido de la pagina*************************************************/
+#contenidoPrincipal {
+    float: left;
+    background: #FFFFFF;
+    width: 1223px;
+    margin-left: 6%;
+    border-radius: 18px 18px 0px 0px;
+    height: 100%;
+}
+
+/*****************************************************Login****************************************************************************/
+
+#contenidoLogin {
+    background: #2E9FFF;
+    border-radius: 5px 5px 5px 5px;
+    margin: 8%;
+    padding: 2%;
+    margin-left: 31%;
+    width: 30%;
+    color: #FFFFFF;
+}
+
+#recupContra {
+    color: #ebd417;
+    text-decoration: none;
+}
+
+    #recupContra:hover {
+        color: #FFFFFF;
+    }
+
+.botonAccion {
+    background: #0C2B69;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    .botonAccion:hover {
+        color: #2E9FFF;
+        cursor: pointer;
+    }
+
+/*****************************************************Algunos Botones y mensaje**********************************************************************/
+
+#mensajePrincipal {
+    
+    width: 100%;
+    height: auto;
+}
+
+#registrarse {
+    background: #0C2B69;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    display: inline-block;
+    margin-left: 5%;
+    text-align: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    #registrarse:hover {
+        color: #2E9FFF;
+    }
+
+#bEditarInfo {
+    background: #0C2B69;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    display: inline-block;
+    margin-left: 5%;
+    text-align: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    #bEditarInfo:hover {
+        color: #2E9FFF;
+    }
+
+#bCerrarSesion {
+    background: #0C2B69;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    display: inline-block;
+    margin-left: 5%;
+    text-align: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    #bCerrarSesion:hover {
+        color: #2E9FFF;
+    }
+
+#bMenu {
+    background: #0C2B69;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    display: inline-block;
+    margin-left: 5%;
+    text-align: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    #bMenu:hover {
+        color: #2E9FFF;
+    }
+
+#MenuOpciones {
+    width: 100%;
+    height: 500px;
+}
+
+    #MenuOpciones ul {
+        text-decoration: none;
+        list-style: none;
+        text-align: center;
+        margin-left: 7%;
+    }
+
+        #MenuOpciones ul li {
+            width: 150px;
+            height: 150px;
+            float: left;
+            margin: 2%;
+            padding: 2%;
+            margin-left: 8%;
+        }
+
+            #MenuOpciones ul li img {
+                float: left;
+                margin: 2%;
+                padding: 2%;
+                cursor: pointer;
+                width: 128px;
+                height: 128px;
+            }
+
+            #MenuOpciones ul li:hover {
+                box-shadow: yellow 0px 10px 0px 5px inset;
+            }
+
+/************************************TABLA***************************************/
+
+.CSSTableGenerator {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    box-shadow: 10px 10px 5px #888888;
+    border: 1px solid #000000;
+    -moz-border-radius-bottomleft: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    -webkit-border-top-right-radius: 0px;
+    border-top-right-radius: 0px;
+    -moz-border-radius-topleft: 0px;
+    -webkit-border-top-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+    .CSSTableGenerator table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .CSSTableGenerator tr:last-child td:last-child {
+        -moz-border-radius-bottomright: 0px;
+        -webkit-border-bottom-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .CSSTableGenerator table tr:first-child td:first-child {
+        -moz-border-radius-topleft: 0px;
+        -webkit-border-top-left-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+
+    .CSSTableGenerator table tr:first-child td:last-child {
+        -moz-border-radius-topright: 0px;
+        -webkit-border-top-right-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+    .CSSTableGenerator tr:last-child td:first-child {
+        -moz-border-radius-bottomleft: 0px;
+        -webkit-border-bottom-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+    .CSSTableGenerator tr:hover td {
+    }
+
+    .CSSTableGenerator tr:nth-child(odd) {
+        background-color: #56ffff;
+    }
+
+    .CSSTableGenerator tr:nth-child(even) {
+        background-color: #ffffff;
+    }
+
+    .CSSTableGenerator td {
+        vertical-align: middle;
+        border: 1px solid #000000;
+        border-width: 0px 1px 1px 0px;
+        text-align: left;
+        padding: 7px;
+        font-size: 10px;
+        font-family: Arial;
+        font-weight: normal;
+        color: #000000;
+    }
+
+    .CSSTableGenerator tr:last-child td {
+        border-width: 0px 1px 0px 0px;
+    }
+
+    .CSSTableGenerator tr td:last-child {
+        border-width: 0px 0px 1px 0px;
+    }
+
+    .CSSTableGenerator tr:last-child td:last-child {
+        border-width: 0px 0px 0px 0px;
+    }
+
+    .CSSTableGenerator tr:first-child td {
+        background: -o-linear-gradient(bottom, #007fff 5%, #0000bf 100%);
+        background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #007fff), color-stop(1, #0000bf) );
+        background: -moz-linear-gradient( center top, #007fff 5%, #0000bf 100% );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#007fff", endColorstr="#0000bf");
+        background: -o-linear-gradient(top,#007fff,0000bf);
+        background-color: #007fff;
+        border: 0px solid #000000;
+        text-align: center;
+        border-width: 0px 0px 1px 1px;
+        font-size: 14px;
+        font-family: Arial;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    .CSSTableGenerator tr:first-child:hover td {
+        background: -o-linear-gradient(bottom, #007fff 5%, #0000bf 100%);
+        background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #007fff), color-stop(1, #0000bf) );
+        background: -moz-linear-gradient( center top, #007fff 5%, #0000bf 100% );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#007fff", endColorstr="#0000bf");
+        background: -o-linear-gradient(top,#007fff,0000bf);
+        background-color: #007fff;
+    }
+
+    .CSSTableGenerator tr:first-child td:first-child {
+        border-width: 0px 0px 1px 0px;
+    }
+
+    .CSSTableGenerator tr:first-child td:last-child {
+        border-width: 0px 0px 1px 1px;
+    }
+
+
+.selects {
+    width: 170px;
+}
+
+
+/*************************************Header**********************************************************************************/
+
+#header {
+    float: left;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+/*************************************Body**********************************************************************************/
+#Body {
+    float: left;
+    width: 100%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+#bImportar {
+    background: #0C2B69;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    display: inline-block;
+    margin-left: 5%;
+    text-align: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 45%;
+}
+
+    #bImportar:hover {
+        color: #2E9FFF;
+    }
+
+
+#contenidoImportar {
+    width: 40%;
+    height: 100px;
+    margin-left: 25%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    float: left;
+}
+
+
+#cargarExcel {
+    width: 50%;
+    height: 100px;
+    margin-left: 30%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    float: left;
+}
+
+#contenidoPrincipal2 {
+    float: left;
+    background: #FFFFFF;
+    width: 1223px;
+    margin-left: 6%;
+    border-radius: 18px 18px 0px 0px;
+    height: 500px;
+}
+
+
+#exportarExcel {
+    margin-left: 30%;
+    width: 520px;
+    margin-right: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#vistaTablaSelect {
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+#vistaTablas {
+
+    margin-bottom: 5%;
+    margin-right: 5%;
+
+}
+
+.scrollup {
+    width: 40px;
+    height: 40px;
+    opacity: 0.3;
+    position: fixed;
+    bottom: 50px;
+    left: 35px;
+    display: none;
+    text-indent: -9999px;
+    background: url(icon_top.png) no-repeat;
+}
+
+#lNombreTabla {
+    font-size: 18px;
+    font-style: inherit;
+}
+
+#bExportar {
+    background: url("export-excel.png");
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 45px;
+    background-size: 50%;
+    border: 0;
+    cursor: pointer;
+    margin-left: 15%;
+}
+
+#vistaTablaSelect {
+    overflow: Scroll;
+    width: 100%;
+    height: auto;
+    margin-bottom: 5%;
+}
+
+#contenidoDescarga {
+    width: 60%;
+    height: 100px;
+    margin-left: 18%;
+    margin-top: 5%;
+    margin-bottom: 20%;
+    float: left;
+    text-align: center;
+    color: #2E9FFF;
+}
+
+#bVolver {
+    background: url("../../css/back.png");
+    background-repeat: no-repeat;
+    width: 128px;
+    height: 128px;
+    background-size: 100%;
+    border: 0;
+    cursor: pointer;
+    margin-left: 5%;
+}
+
+
+#bBuscarBoleta {
+    background: #0C2B69;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    display: inline-block;
+    margin-left: 25%;
+    text-align: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+    #bBuscarBoleta:hover {
+        color: #2E9FFF;
+    }
+
+#bEliminarFila {
+    background: #0C2B69;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    display: inline-block;
+    margin-left: 25%;
+    text-align: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    #bEliminarFila:hover {
+        color: #2E9FFF;
+    }
+
+
+ #bActualizarUser{
+
+    background: url("puntoVentasImg/Icon (1).png");
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100%;
+    border: 0;
+    cursor: pointer;
+    margin-left: 5%;
+
+}
+
+ #bEliminarUser{
+
+    background: url("puntoVentasImg/Icon (5).png");
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 100%;
+    border: 0;
+    cursor: pointer;
+    margin-left: 5%;
+
+}

@@ -1,0 +1,162 @@
+.header {
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-top-color: #000000;
+    border-right-color: #000000;
+    border-bottom-color: #000000;
+    border-left-color: #000000;
+}
+.phpcode {
+    font-family: "Courier New", Courier, mono;
+    font-size: 13px;
+    color: #000000;
+    background-color: #f3f3f3;
+}
+.msg {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #FF0000;
+    background-color: #FFFFCC;
+    padding: 4px;
+    border: 1px dotted #FF9900;
+    font-weight: bold;
+}
+.tabla {
+    background-image: url(../img/central.jpg);
+    background-position: 50% 10%;
+    background-repeat: no-repeat;
+}
+
+#caja {
+    background-color: #FFFFFF;
+    height: 50px;
+    width: 527px;
+    padding: 10px;
+    font-size:12pt;
+    font-family:Verdana;
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+    /* para IE */
+    box-shadow: 0 0 10px #000; 
+    behavior:url(border.htc);
+}
+
+#caja1 {
+    background-color: #6E6E6E;
+    height: 30px;
+    width: 150px;
+    padding: 12px;
+    font-size:15pt;
+    font-family:Verdana;
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+    /* para IE */
+    box-shadow: 0 0 10px #000; 
+    behavior:url(border.htc);
+}
+
+#caja2 {
+    background-color: #FFFFFF;
+    height: 30px;
+    width: 239px;
+    padding: 12px;
+    font-size:15pt;
+    font-family:Verdana;
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+    /* para IE */
+    box-shadow: 0 0 10px #000; 
+    behavior:url(border.htc);
+}
+
+#caja3 {
+    background-color: #B40404;
+    height: 50px;
+    width: 180px;
+    padding: 10px;
+
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+    /* para IE */
+    box-shadow: 0 0 10px #000; 
+    behavior:url(border.htc);
+}
+
+#caja4 {
+    background-color: #FFFFFF;
+    height: 400px;
+    width: 500px;
+    padding: 20px;
+
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+    /* para IE */
+    box-shadow: 0 0 10px #000; 
+    behavior:url(border.htc);
+}
+
+
+#caja5 {
+    background-color: #B40404;
+    height: 10px;
+    width: 80px;
+    padding: 8px;
+    font-size:12pt;
+    font-family:Verdana;
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 15px 15px 15px 15px;
+    /* para IE */
+    box-shadow: 0 0 10px #000; 
+    behavior:url(border.htc);
+}
+
+#caja6 {
+    background-color: #FFFFFF;
+    height: 20px;
+    width: 180px;
+    padding: 10px;
+    font-size:20pt;
+    font-family:Verdana;
+    /*para Firefox*/
+    -moz-border-radius: 15px 15px 15px 15px;
+    /*para Safari y Chrome*/
+    -webkit-border-radius: 15px 15px 15px 15px;
+    /* para Opera */
+    border-radius: 10px 10px 10px 10px;
+    /* para IE */
+    //box-shadow: 0 0 10px #000; 
+    behavior:url(border.htc);
+}
+
+
+
