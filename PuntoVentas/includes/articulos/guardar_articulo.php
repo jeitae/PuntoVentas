@@ -88,21 +88,6 @@ if ($accion == "alta") {
             $codarticulo = $_POST['codigo'];
         }
 
-
-
-
-
-
-
-        //	    $foto_name="foto".$codarticulo.".jpg";
-        //	    $foto_namea="fotosubida.jpg";
-        //		$query_operacion="UPDATE articulos SET imagen='$foto_name' WHERE codarticulo='$codarticulo'";				
-        //		$rs_operacion=$conn->consulta($query_operacion);
-        //        if (! copy ("../fotos/$foto_namea", "../fotos/$foto_name")) 
-        //		{
-        // echo "<h2>No se ha podido copiar el archivo  111</h2>\n";
-        //		};
-
         $codaux = $codarticulo;
         while (strlen($codaux) < 6) {
             $codaux = "0" . $codaux;

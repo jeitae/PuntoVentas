@@ -347,7 +347,7 @@ if (!isset($_SESSION['idSession'])||$_SESSION['rol']==2) {
                                     <tr class="<?php echo $fondolinea ?>">
                                         <td class="aCentro" width="8%"><?php echo $contador + 1; ?></td>
                                         <td width="6%"><div align="center"><?php echo mysql_result($res_resultado, $contador, "codproveedor") ?></div></td>
-                                        <td width="38%"><div align="left"><?php echo mysql_result($res_resultado, $contador, "nombre") ?></div></td>
+                                        <td width="38%"><div align="center"><?php echo mysql_result($res_resultado, $contador, "nombre") ?></div></td>
                                         <td class="aDerecha" width="13%"><div align="center"><?php echo mysql_result($res_resultado, $contador, "nif") ?></div></td>
                                         <td class="aDerecha" width="19%"><div align="center"><?php echo mysql_result($res_resultado, $contador, "telefono") ?></div></td>
                                         <td width="5%"><div align="center"><a href="#"><img src="../img/modificar.png" width="16" height="16" border="0" onClick="modificar_proveedor(<?php echo mysql_result($res_resultado, $contador, "codproveedor") ?>)" title="Modificar"></a></div></td>

@@ -5,6 +5,15 @@ if (!isset($_SESSION['idSession'])) {
 
     header("Location:index.php");
 } else {
+    
+    /**
+     * 
+     * Se importa la clase de conexion para utilizar sus metodos,
+     * se lleva a cabo una consulta para validar el rol de usuario
+     * logueado en el Sistema cada vez que se ingresa al menu del
+     * punto de ventas.
+     * 
+     */
     require "includes/sys/conexion.php";
     $conn = new conexion();
 
@@ -45,7 +54,7 @@ if (!isset($_SESSION['idSession'])) {
                 jQuery(function ($) {
                     $(document).ready(function () {
 
-                        $('#menu').stickUp();
+                        $('#menu').stickUp(); //Para visualizar el menu superior lateral derecho a la vista del usuario. Menu es el div donde se debe mantener el contenido
                     });
                 });
                 alertify.notify('Bienvenido al Sistema de Punto de Ventas: <?php echo $_SESSION['user']; ?>', 'success', 6, null).dismissOthers();

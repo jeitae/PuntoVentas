@@ -7,20 +7,15 @@ class conexion {
 
     public function conexion() {
         if (!isset($this->conexion)) {
-            $this->conexion = (mysql_connect("127.0.0.1", "root", "")) ;//or die(mysql_error());
-            mysql_select_db("punto_ventas", $this->conexion);//or die(mysql_error());
+            $this->conexion = (mysql_connect("127.0.0.1", "root", "")) ;// Host, user, password
+            mysql_select_db("punto_ventas", $this->conexion);// Utilizar base de datos Pundo de Ventas, conexion
         }
         $this->getParamentros();
     }
 
     public function consulta($consulta) {
-        $this->total_consultas++;
-        $resultado = mysql_query($consulta, $this->conexion);
-//        if (!$resultado) {
-//            echo 'MySQL Error: ' . mysql_error();
-//            exit;
-//        } else {            
-//        }
+        $this->total_consultas++;  //Aumentar el conteo de consultas realizadas
+        $resultado = mysql_query($consulta, $this->conexion); //Ejecutar la consulta, conexion
         return $resultado;
     }
 

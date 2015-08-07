@@ -42,7 +42,7 @@ if (!isset($_SESSION['idSession']) || $_SESSION['rol'] == 2) {
             </div>
         </div>
         <div id="contenidoPrincipal" >
-            <div style="width: 98%;margin-top: 4%; margin-bottom: 4%;height: auto;">
+            <div style="width: 98%;margin-top: 4%; margin-bottom: 4%;height: auto;overflow: scroll;">
                 <div align="center" style="margin-left:2%;">
                     <div id="tituloForm_PAR" class="header" align="center"><table>Mantención de Parámetros</table></div>
                     <?php

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['idSession'])||$_SESSION['rol']==2) {
+if (!isset($_SESSION['idSession']) || $_SESSION['rol'] == 2) {
 
     header("Location:../../index.php");
 } else {
@@ -15,7 +15,8 @@ if (!isset($_SESSION['idSession'])||$_SESSION['rol']==2) {
         //}
         if (strcmp($_POST['pass1'], $_POST['pass2']) || empty($_POST['pass1'])) {
             //die ("Password does not match");
-            die("ERROR: Password does not match or empty..");
+            echo '<button onclick="history.back()";>Regresar</button><br>';
+            die("ERROR: Las contrasenas no son iguales o vacias...");
         }
 
         //Aqui nombre de usuario
@@ -25,47 +26,21 @@ if (!isset($_SESSION['idSession'])||$_SESSION['rol']==2) {
 
         if ($duplicates > 0) {
             //die ("ERROR: User account already exists.");
-            header("Location: register.php?msg=ERROR: Nombre de usuario ya existe..");
+            echo '<button onclick="history.back()";>Regresar</button><br>';
+            header("Location: register.php?contadorVeces=2&msg=ERROR: Nombre de usuario ya existe..");
             exit();
         }
-
-        //Fin nombre de usuario
-        //Verificar email duplicado
-        //$rs_duplicates = $conn->consulta("select id from users where user_email='$_POST[email]'");
-        //$duplicates = $conn->num_rows($rs_duplicates);
-        //if ($duplicates > 0)
-        //{	
-        //die ("ERROR: User account already exists.");
-        //header("Location: register.php?msg=ERROR: User account already exists..");
-        //exit();
-        //}
-        //Fin Verificar email duplicado
 
         $md5pass = md5(@$_POST['pass2']);
         $activ_code = rand(1000, 9999);
         $server = $_SERVER['HTTP_HOST'];
-        //$host = ereg_replace('www.','',$server);
         $host = str_ireplace('www.', '', $server);
         $conn->consulta("INSERT INTO users
 	              (`user_name`,`user_pwd`,`rol`,`joined`,`activation_code`,`full_name`,`user_activated`)
 				  VALUES
-				  ('$_POST[nusuario]','$md5pass','$_POST[rol]',now(),'$activ_code','$_POST[full_name]','1')") or die(mysql_error());
+				  ('$_POST[nusuario]','$md5pass','$_POST[rol]',now(),'$activ_code','$_POST[full_name]','1')");
 
-        $message = "Thank you for registering an account with $server. Here are the login details...\n
-Gracias por registrarse en $server. Este es el detalle de sus datos ...\n\n
-
-
-Email: $_POST[nusuario] \n
-Clave: $_POST[pass2] \n
-
-______________________________________________________________
-Thank you. This is an automated response. PLEASE DO NOT REPLY.
-Gracias, esta es una respuesta autom�tica, favor no responda.
-";
-
-        mail(@$_POST['nusuario'], "Registro de usuario", $message, "From: Sistema de Facturación <administrador@$host>\r\n");
-        unset($_SESSION['ckey']);
-        header("Location: register.php?msg=Correcto: Se ha registrado exitosamente!");
+        header("Location: register.php?contadorVeces=2&msg=Correcto: Se ha registrado exitosamente!");
         exit();
     }
 }
@@ -73,11 +48,15 @@ Gracias, esta es una respuesta autom�tica, favor no responda.
 
 <?php
 if (isset($_GET['msg'])) {
+    $contadorVeces = $_GET['contadorVeces'];
     if ($_GET['msg'] == "Correcto: Se ha registrado exitosamente!") {
         echo "<div class=\"msg\" style=\"color:green;\"> $_GET[msg] </div>";
     } else {
         echo "<div class=\"msg\"> $_GET[msg] </div>";
     }
+} else {
+
+    $contadorVeces = 1;
 }
 ?>
 
@@ -107,12 +86,17 @@ if (isset($_GET['msg'])) {
         <link rel="stylesheet" href="../../css/style.css" type="text/css">
         <script>
 
+            var vecesContador = "<?php echo $contadorVeces ?>";
+
             $(document).ready(function () {
-                alertify.confirm('Se dispone el espacio para agregar nuevos usuarios en el sistema').autoCancel(10).set('onok', function () {
-                    alertify.notify('Actua con cautela!', 'warning', 6, null).dismissOthers();
-                }, 'oncancel', function () {
-                    alertify.notify('Actua con cautela!', 'warning', 6, null).dismissOthers();
-                });
+
+                if (vecesContador == 1) {
+                    alertify.confirm('Se dispone el espacio para agregar nuevos usuarios en el sistema').autoCancel(10).set('onok', function () {
+                        alertify.notify('Actua con cautela!', 'warning', 6, null).dismissOthers();
+                    }, 'oncancel', function () {
+                        alertify.notify('Actua con cautela!', 'warning', 6, null).dismissOthers();
+                    });
+                }
             });
 
         </script>

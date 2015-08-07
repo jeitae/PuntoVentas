@@ -190,7 +190,7 @@ if (!isset($_SESSION['idSession'])||$_SESSION['rol']==2) {
                                     <tr class="<?php echo $fondolinea ?>">
                                         <td class="aCentro" width="12%"><?php echo $contador + 1; ?></td>
                                         <td width="20%"><div align="center"><?php echo mysql_result($res_resultado, $contador, "codfamilia") ?></div></td>
-                                        <td width="50%"><div align="left"><?php echo mysql_result($res_resultado, $contador, "nombre") ?></div></td>
+                                        <td width="50%"><div align="center"><?php echo mysql_result($res_resultado, $contador, "nombre") ?></div></td>
                                         <td width="6%"><div align="center"><a href="#"><img src="../img/modificar.png" width="16" height="16" border="0" onClick="modificar_familia(<?php echo mysql_result($res_resultado, $contador, "codfamilia") ?>)" title="Modificar"></a></div></td>
                                         <td width="6%"><div align="center"><a href="#"><img src="../img/ver.png" width="16" height="16" border="0" onClick="ver_familia(<?php echo mysql_result($res_resultado, $contador, "codfamilia") ?>)" title="Visualizar"></a></div></td>
                                         <td width="6%"><div align="center"><a href="#"><img src="../img/eliminar.png" width="16" height="16" border="0" onClick="eliminar_familia(<?php echo mysql_result($res_resultado, $contador, "codfamilia") ?>)" title="Eliminar"></a></div></td>

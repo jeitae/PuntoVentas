@@ -12,7 +12,7 @@ if (!isset($_SESSION['idSession'])) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Menu Facturacion</title>
+        <title>Menu Facturación</title>
         <script type="text/javascript" src="js/alertify.min.js"></script>
         <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="js/jquery-ui.js"></script>
@@ -35,6 +35,9 @@ if (!isset($_SESSION['idSession'])) {
         <script>
             $(document).ready(function () {
 
+                //Alertify es una libreria que implementa mensajeria por 
+                //alertas, notify: mensaje, tipo de mensaje, tiempo de espera, 
+                //funcion extra. Disminuir cualquier otro mensaje.
                 alertify.notify('Seleccione una opcion para trabajar en la facturación', 'custom', 6, null).dismissOthers();
 
             });
@@ -47,7 +50,17 @@ if (!isset($_SESSION['idSession'])) {
 
 
                 <a href="menu.php"><input id="bMenu" type="button" value="Menu Principal" style="margin-left: 8%;"/></a>
-                <?php if ($_SESSION['rol'] == 1) { ?>
+               
+                <?php 
+                
+                /**
+                 * 
+                 * Dependiendo del rol del usuario se muestra o no ciertas
+                 * opciones para el usuario
+                 * 
+                 */
+                
+                if ($_SESSION['rol'] == 1) { ?>
                     <button id="bEditarInfo">Detalles/Cuenta</button>
                 <?php } ?>
                 <a href="includes/sys/validaciones/cerrarSession.php"><button id="bCerrarSesion">Cerrar Sesion</button></a>

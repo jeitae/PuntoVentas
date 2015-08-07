@@ -106,8 +106,8 @@ $iva = @mysql_result($rs_query, 0, "iva");
                                 ?>
                                 <tr class="<?php echo $fondolinea ?>">
                                     <td width="5%" class="aCentro"><?php echo $i + 1 ?></td>
-                                    <td width="25%"><?php echo $referencia ?></td>
-                                    <td width="30%"><?php echo $descripcion ?></td>
+                                    <td width="25%" align="center"><?php echo $referencia ?></td>
+                                    <td width="30%" align="center"><?php echo $descripcion ?></td>
                                     <td width="10%" class="aCentro"><?php echo $cantidad ?></td>
                                     <td width="10%" class="aCentro"><?php echo $precio ?></td>
                                     <td width="10%" class="aCentro"><?php echo $descuento ?></td>
@@ -125,7 +125,7 @@ $iva = @mysql_result($rs_query, 0, "iva");
                     <div id="frmBusqueda">
                         <table width="25%" border=0 align="right" cellpadding=3 cellspacing=0 class="fuente8">
                             <tr>
-                                <td width="15%">Base imponible</td>
+                                <td width="15%">Sub-Total</td>
                                 <td width="15%"><?php echo $GLOBALS['simbolomoneda']; ?><?php echo number_format($baseimponible, 2); ?> </td>
                             </tr>
                             <tr>

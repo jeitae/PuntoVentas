@@ -9,11 +9,19 @@ if (!isset($_SESSION['idSession']) || $_SESSION['rol'] == 2) {
     require "../sys/conexion.php";
     $conn = new conexion();
 
+    /*
+     * Se optiene el codigo de articulo y la referencia mediante get (url)
+     * para realizar la consulta del articulo deseado
+     */
     $codarticulo = @$_GET["codarticulo"];
     $referencia = @$_GET["referencia"];
-
-
     $cadena_busqueda = @$_GET["cadena_busqueda"];
+
+
+    /*
+     * Se realiza la cadena de consulta dependiendo del codigo y referencia
+     * reciba.
+     */
 
     $where = "1=1";
     if ($codarticulo != "") {
@@ -26,7 +34,7 @@ if (!isset($_SESSION['idSession']) || $_SESSION['rol'] == 2) {
     $where.=" ORDER BY codarticulo ASC";
     $query_busqueda = "SELECT count(*) as filas FROM articulos WHERE borrado=0 AND " . $where;
     $rs_busqueda = $conn->consulta($query_busqueda);
-    $filas = mysql_result($rs_busqueda, 0, "filas");
+    $filas = mysql_result($rs_busqueda, 0, "filas"); //Posicion 0 de los resultados optenidos
 }
 ?>
 
@@ -62,14 +70,20 @@ if (!isset($_SESSION['idSession']) || $_SESSION['rol'] == 2) {
             });
 
             function nuevo_articulo() {
+                /*
+                 * Se abre una ventana emergente para realizar la busqueda de los articulos
+                 * Parametros: Ventana para abrir, nombreUnicoIdentificador del popup, dimenciones y caracteristicas
+                 */
+
                 miPopup = window.open("nuevo_articulo.php", "miwin", "width=1200,height=650,scrollbars=yes");
-                miPopup.focus();
+                miPopup.focus(); //
             }
 
             function imprimir() {
+                
                 var codarticulo = document.getElementById("codarticulo").value;
                 var referencia = document.getElementById("referencia").value;
-                if (referencia.trim() == "") {
+                if (referencia.trim() == "") { //Se requiere la referencia o parte de esta como campo obligatorio
 
                     alertify.notify('Debes introducir la referencia y el código del articulo a imprimir', 'error', 6, null).dismissOthers();
 
@@ -205,7 +219,11 @@ if (!isset($_SESSION['idSession']) || $_SESSION['rol'] == 2) {
                                 @$res_resultado = $conn->consulta($sel_resultado);
                                 $contador = 0;
                                 while ($contador < $conn->num_rows($res_resultado)) {
-                                    if ($contador % 2) {
+                                    /*
+                                     * Se imprimin los resultados de los articulos de acuerdo al resultado de la consulta
+                                     * segun el codigo del articulo
+                                     */
+                                    if ($contador % 2) { //Se establece la clase de la linea
                                         $fondolinea = "itemParTabla";
                                     } else {
                                         $fondolinea = "itemImparTabla";
@@ -214,9 +232,9 @@ if (!isset($_SESSION['idSession']) || $_SESSION['rol'] == 2) {
                                     <tr class="<?php echo $fondolinea; ?>">
                                         <td class="aCentro" width="4%"><?php echo $contador + 1; ?></td>
                                         <td width="5%"><div align="center"><?php echo mysql_result($res_resultado, $contador, "codarticulo") ?></div></td>
-                                        <td width="19%"><div align="left"><?php echo mysql_result($res_resultado, $contador, "referencia") ?></div></td>
-                                        <td width="27%"><div align="left"><?php echo mysql_result($res_resultado, $contador, "descripcion") ?></div></td>
-                                        <td width="9%"><div align="left">
+                                        <td width="19%"><div align="center"><?php echo mysql_result($res_resultado, $contador, "referencia") ?></div></td>
+                                        <td width="27%"><div align="center"><?php echo mysql_result($res_resultado, $contador, "descripcion") ?></div></td>
+                                        <td width="9%"><div align="center">
                                                 <?php
                                                 $codfamilia = mysql_result($res_resultado, $contador, "codfamilia");
                                                 $query_familia = "SELECT nombre FROM familias WHERE codfamilia='$codfamilia'";

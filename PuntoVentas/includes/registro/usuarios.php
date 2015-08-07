@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['idSession'])||$_SESSION['rol']==2) {
+if (!isset($_SESSION['idSession']) || $_SESSION['rol'] == 2) {
 
     header("Location:../../index.php");
 } else {
@@ -17,15 +17,20 @@ if (!isset($_SESSION['idSession'])||$_SESSION['rol']==2) {
             $full_name = $_POST['full_name'];
             $user_name = $_POST['user_name'];
             $user_email = $_POST['user_email'];
-            $activation_code = $_POST['activation_code'];
             $joined = $_POST['joined'];
             $rol = $_POST['rol'];
+            $contadorVeces = $_POST['contadorVeces'];
             $user_activated = $_POST['user_activated'];
 
-            $consulta = "update users set id='" . $id . "',full_name='" . $full_name . "',user_name='" . $user_name . "',user_email='" . $user_email . "',activation_code='" . $activation_code . "',joined='" . $joined . "',rol='" . $rol . "',user_activated='" . $user_activated . "' where id = '" . $id . "'";
+            $consulta = "update users set id='" . $id . "',full_name='" . $full_name . "',user_name='" . $user_name . "',user_email='" . $user_email . "',joined='" . $joined . "',rol='" . $rol . "',user_activated='" . $user_activated . "' where id = '" . $id . "'";
             $resultado = $conn->consulta($consulta);
 
             if ($resultado != null) {
+
+                $consultaSession = "select rol from users where user_name = '" . $_SESSION['user'] . "'";
+                $resultadoSession = $conn->consulta($consultaSession);
+                $row = $conn->fetch_array($resultadoSession);
+                $_SESSION['rol'] = $row['rol'];
 
                 $valor = "actualizar";
             } else {
@@ -33,34 +38,42 @@ if (!isset($_SESSION['idSession'])||$_SESSION['rol']==2) {
                 $valor = "actualizar_error";
             }
 
-            header('Refresh: 3; URL=usuarios.php');
+            $query = "Select * from users order by id asc";
+
+            $seleccion = $conn->consulta($query);
         }
 
         if (isset($_GET['id'])) {
 
             $id = $_GET['id'];
             $user_name = $_GET['user_name'];
-
+            $contadorVeces = $_GET['contadorVeces'];
 
             $consulta = "delete from users where id = '" . $id . "' and user_name = '" . $user_name . "'";
             $resultado = $conn->consulta($consulta);
 
             if ($resultado != null) {
-
+                $consultaSession = "select rol from users where user_name = '" . $_SESSION['user'] . "'";
+                $resultadoSession = $conn->consulta($consultaSession);
+                $row = $conn->fetch_array($resultadoSession);
+                $_SESSION['rol'] = $row['rol'];
+                
                 $valor = "eliminar";
             } else {
 
                 $valor = "eliminar_error";
             }
 
-            header('Refresh: 3; URL=usuarios.php');
+            $query = "Select * from users order by id asc";
+
+            $seleccion = $conn->consulta($query);
         }
     } else {
 
-
+        $contadorVeces = 1;
         $query = "Select * from users order by id asc";
 
-        $resultado = $conn->consulta($query);
+        $seleccion = $conn->consulta($query);
     }
 }
 ?>
@@ -90,14 +103,16 @@ if (!isset($_SESSION['idSession'])||$_SESSION['rol']==2) {
         <link rel="stylesheet" href="../../css/style.css" type="text/css">
         <script>
 
+            var vecesContador = "<?php echo $contadorVeces ?>";
+
             $(document).ready(function () {
-
-                alertify.confirm('Cualquier cambio que se realize en este espacio no es reversible').autoCancel(10).set('onok', function () {
-                    alertify.notify('Actua con cautela!', 'warning', 6, null).dismissOthers();
-                }, 'oncancel', function () {
-                    alertify.notify('Actua con cautela!', 'warning', 6, null).dismissOthers();
-                });
-
+                if (vecesContador == 1) {
+                    alertify.confirm('Cualquier cambio que se realize en este espacio no es reversible').autoCancel(10).set('onok', function () {
+                        alertify.notify('Actua con cautela!', 'warning', 6, null).dismissOthers();
+                    }, 'oncancel', function () {
+                        alertify.notify('Actua con cautela!', 'warning', 6, null).dismissOthers();
+                    });
+                }
                 if ($('#mensajeUserValidar').val() == "actualizar") {
 
                     alertify.notify('Se actualizo el usuario correctamente', 'success', 6, null).dismissOthers();
@@ -113,6 +128,7 @@ if (!isset($_SESSION['idSession'])||$_SESSION['rol']==2) {
 
 
             });
+
 
         </script>
 
@@ -152,30 +168,31 @@ if (!isset($_SESSION['idSession'])||$_SESSION['rol']==2) {
                         <th>ID</th>
                         <th>Nombre Completo</th>
                         <th>Nombre Usuario</th>
-                        
-                        <th>Correo Electronico</th>
-                        <th>Código de Activación</th>
+
+                        <th colspan="2" width="15%">Correo Electronico</th>
+
                         <th>Agregado</th>
                         <th>Rol</th>
                         <th>Estado</th>
 
                     </tr>
                     <?php
-                    while ($row = @$conn->fetch_array($resultado)) {
+                    while ($row = @$conn->fetch_array($seleccion)) {
                         echo '<form action="usuarios.php" id="formularioUsers" method="post">';
+                        echo '<input type="hidden" name="contadorVeces" value="2">';
                         echo '<tr class="itemImparTabla"><td class="aCentro"><input style="width:26px;" readonly="yes" title="No se puede editar" type="text" maxlength="20" name = "id" value = "' . $row['id'] . '"/></td>
                                <td><input type="text" maxlength="200" name = "full_name" value = "' . $row['full_name'] . '"/></td>
 					<td><input style="width:100px;" type="text" maxlength="25" name = "user_name" value = "' . $row['user_name'] . '"/></td>
 					
-                                           <td><input type="text" maxlength="200" name = "user_email" value = "' . $row['user_email'] . '"/></td>
-                                               <td><input style="width:80px;" type="text" maxlength="10" readonly="yes" title="No se puede editar" name = "activation_code" value = "' . $row['activation_code'] . '"/></td>
+                                           <td colspan="2" width="15%"><input type="text" maxlength="200" name = "user_email" value = "' . $row['user_email'] . '"/></td>
+                                               
                                                    <td><input style="width:80px;" type="text" maxlength="20" readonly="yes" title="No se puede editar" name = "joined" value = "' . $row['joined'] . '"/></td>
                                                        <td><input style="width:26px;" type="text" maxlength="2" name = "rol" value = "' . $row['rol'] . '"/></td>
                                                            <td><input style="width:26px;" type="text" maxlength="2" name = "user_activated" value = "' . $row['user_activated'] . '"/></td>
                                                     
 					<td><input type="submit" id="bActualizarUser" value="" title="Actualizar Usuario"></td>';
                         echo "</form>";
-                        echo '<td><a href="usuarios.php?id=' . $row['id'] . '&user_name=' . $row['user_name'] . '"><button id="bEliminarUser" title="Eliminar Usuario"></button></a></td></tr>';
+                        echo '<td><a href="usuarios.php?contadorVeces=2&id=' . $row['id'] . '&user_name=' . $row['user_name'] . '"><button id="bEliminarUser" title="Eliminar Usuario"></button></a></td></tr>';
                     }
                     ?>
 

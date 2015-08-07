@@ -1,4 +1,18 @@
 <?php
+
+/**
+ * Universidad de Costa Rica
+ * Recinto de Guapiles
+ * 
+ * Oficina de TCU
+ * 
+ * Se encarga de recibir al usuario directamente
+ * al panel de logueo, validando el uso de variables
+ * de session para controlar el acceso.
+
+**/
+
+
 session_start();
 
 if (isset($_SESSION['idSession'])) {
@@ -7,7 +21,6 @@ if (isset($_SESSION['idSession'])) {
 }
 ?>
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="UTF-8">
@@ -36,7 +49,10 @@ if (isset($_SESSION['idSession'])) {
     <body>
         <div id="menu">
             <div id="Div1">
-                <input type="hidden" id="mensajeAccion"/>
+<!--                Se utiliza para controlar el acceso al sistema 
+                esta variable cambia dependiendo de lo devuelto
+                de la validacion.-->
+                <input type="hidden" id="mensajeAccion"/> 
             </div>
         </div>
         <div id="contenidoPrincipal">
@@ -44,6 +60,7 @@ if (isset($_SESSION['idSession'])) {
             <header>
                 <div>
                     <nav>
+                        <!--Imagen PUNTO DE VENTAS (Encabezado)-->
                         <img id="mensajePrincipal" src="css/mensaje.png" />
                     </nav>
                 </div>

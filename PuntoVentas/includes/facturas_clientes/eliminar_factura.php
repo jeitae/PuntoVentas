@@ -121,7 +121,7 @@ $iva = @mysql_result($rs_query, 0, "iva");
                     <div id="frmBusqueda">
                         <table width="25%" border=0 align="right" cellpadding=3 cellspacing=0 class="fuente8">
                             <tr>
-                                <td width="15%">Base imponible</td>
+                                <td width="15%">Sub-Total</td>
                                 <td width="15%"><?php echo $GLOBALS['simbolomoneda']; ?><?php echo number_format($baseimponible, 2); ?></td>
                             </tr>
                             <tr>
