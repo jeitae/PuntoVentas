@@ -6,7 +6,7 @@ git pull https://github.com/jeitae/PuntoVentas
 
 git status
 
-git add .
+git add --all
 
 git commit -m $comentario -a
 
